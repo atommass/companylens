@@ -1,0 +1,16 @@
+                                                                           Table "public.data_sync_states"
+         Column          |              Type              | Collation | Nullable |                   Default                    | Storage  | Compression | Stats target | Description 
+-------------------------+--------------------------------+-----------+----------+----------------------------------------------+----------+-------------+--------------+-------------
+ id                      | bigint                         |           | not null | nextval('data_sync_states_id_seq'::regclass) | plain    |             |              | 
+ source_key              | character varying(255)         |           | not null |                                              | extended |             |              | 
+ content_hash            | character varying(64)          |           | not null |                                              | extended |             |              | 
+ record_count            | integer                        |           | not null | 0                                            | plain    |             |              | 
+ source_last_modified_at | timestamp(0) without time zone |           |          |                                              | plain    |             |              | 
+ last_synced_at          | timestamp(0) without time zone |           |          |                                              | plain    |             |              | 
+ created_at              | timestamp(0) without time zone |           |          |                                              | plain    |             |              | 
+ updated_at              | timestamp(0) without time zone |           |          |                                              | plain    |             |              | 
+Indexes:
+    "data_sync_states_pkey" PRIMARY KEY, btree (id)
+    "data_sync_states_source_key_unique" UNIQUE CONSTRAINT, btree (source_key)
+Access method: heap
+
